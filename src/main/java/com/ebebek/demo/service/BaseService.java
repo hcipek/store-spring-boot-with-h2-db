@@ -2,20 +2,19 @@ package com.ebebek.demo.service;
 
 import com.ebebek.demo.converter.BaseConverter;
 import com.ebebek.demo.model.base.BaseModel;
-import com.ebebek.demo.model.base.BaseRequest;
-import com.ebebek.demo.model.base.BaseResponse;
 import com.ebebek.demo.repo.BaseRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 public abstract class BaseService<T extends BaseModel, U extends BaseRepository<T, Long>, V extends BaseConverter> {
 	
 	@Autowired
 	protected U repo;
 
-	@Autowired
 	protected V converter;
 	
 	public T save(T t) {
