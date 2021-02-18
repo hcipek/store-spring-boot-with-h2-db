@@ -15,6 +15,7 @@ public abstract class BaseService<T extends BaseModel, U extends BaseRepository<
 	@Autowired
 	protected U repo;
 
+	@Autowired
 	protected V converter;
 	
 	public T save(T t) {
