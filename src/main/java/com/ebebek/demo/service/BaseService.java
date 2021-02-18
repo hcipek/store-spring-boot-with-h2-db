@@ -24,7 +24,7 @@ public abstract class BaseService<T extends BaseModel, U extends BaseRepository<
 	public T get(Long id) {
 		Optional<T> optional = repo.findById(id);
 
-		if(optional.isEmpty())
+		if(!optional.isPresent())
 			return null;
 		else
 			return optional.get();
