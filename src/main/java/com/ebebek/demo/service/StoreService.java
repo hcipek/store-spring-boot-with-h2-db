@@ -2,6 +2,7 @@ package com.ebebek.demo.service;
 
 import com.ebebek.demo.converter.StoreConverter;
 import com.ebebek.demo.model.entity.Store;
+import com.ebebek.demo.model.request.CityRequest;
 import com.ebebek.demo.model.request.StoreRequest;
 import com.ebebek.demo.model.response.StoreResponse;
 import com.ebebek.demo.repo.StoreRepository;
@@ -15,7 +16,13 @@ public class StoreService extends BaseService<Store, StoreRepository, StoreConve
 
     public StoreResponse create(StoreRequest request) {
         List<Store> storeList = converter.convert(request);
-        storeList.forEach(e -> repo.save(e));
+        storeList = repo.saveAll(storeList);
+        return new StoreResponse(storeList, ResponseCodesUtil.SUCCESS.message, ResponseCodesUtil.SUCCESS.code);
+    }
+
+    public StoreResponse createGenerate(CityRequest req) {
+        List<Store> storeList = converter.convert(req);
+        storeList = repo.saveAll(storeList);
         return new StoreResponse(storeList, ResponseCodesUtil.SUCCESS.message, ResponseCodesUtil.SUCCESS.code);
     }
 }

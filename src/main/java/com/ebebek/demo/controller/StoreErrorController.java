@@ -6,13 +6,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class StoreErrorController implements ErrorController {
-	
-	@Override
-	@RequestMapping("/error")
-	@ResponseBody
-	public String getErrorPath() {
-		return "UNSUPPORTED OPERATION";
-	}
+public class StoreErrorController  {
+
+
+//	@Override
+//	@RequestMapping("/error")
+//	@ResponseBody
+//	public String getErrorPath() {
+//		return "UNSUPPORTED OPERATION";
+//	}
 
 }

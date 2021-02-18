@@ -10,5 +10,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class StoreDto extends BaseDto {
 
+    private Long id;
+    private Long stockId;
+    private String location;
+
 
 }
