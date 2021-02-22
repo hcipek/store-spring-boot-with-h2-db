@@ -6,10 +6,7 @@ import com.ebebek.demo.model.response.StoreResponse;
 import com.ebebek.demo.service.StoreService;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/store")
@@ -18,7 +15,7 @@ public class StoreController extends BaseController<StoreService, StoreRequest, 
     @Override
     @PostMapping("/create")
     @Transactional(propagation = Propagation.REQUIRED)
-    public StoreResponse create(StoreRequest request) {
+    public StoreResponse create(@RequestBody StoreRequest request) {
         return service.create(request);
     }
 
@@ -35,6 +32,12 @@ public class StoreController extends BaseController<StoreService, StoreRequest, 
     @Override
     public StoreResponse get(StoreRequest request) {
         return null;
+    }
+
+    @GetMapping("/getall")
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public StoreResponse getAll() {
+        return service.findAllWithBody();
     }
 
     @PostMapping("/create/generate")

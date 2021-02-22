@@ -29,4 +29,8 @@ public class StoreService extends BaseService<Store, StoreRepository, StoreConve
         storeList = repo.saveAll(storeList);
         return new StoreResponse(storeList, ResponseCodesUtil.SUCCESS.message, ResponseCodesUtil.SUCCESS.code);
     }
+
+    public StoreResponse findAllWithBody() {
+        return new StoreResponse(findAll(), ResponseCodesUtil.SUCCESS.message, ResponseCodesUtil.SUCCESS.code);
+    }
 }

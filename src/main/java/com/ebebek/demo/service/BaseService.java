@@ -47,4 +47,8 @@ public abstract class BaseService<T extends BaseModel, U extends BaseRepository<
 		repo.deleteAll();
 	}
 
+	public List<T> findAll() {
+		return repo.findAll();
+	}
+
 }
